@@ -16,8 +16,7 @@ class Program
     }
 
     interface IStoreInterface
-    {
-        
+    {        
         void addProduct(string product);
         void removeProduct(string product);
         void addByer(string byer);
@@ -76,10 +75,11 @@ class Program
         int Id { get; set; }
         string Description { get; set; }
 
-        public Products(string name, int id, string descroption){
+        public Products(string name, int id, string description)
+        {
             Name = name;
             Id = id;
-            Description = descroption;
+            Description = description;
         }
     }
 
@@ -104,6 +104,28 @@ class Program
         {
             Name = name;
             Inn = inn;
+        }
+    }
+    interface IProducrProperty
+    {
+        public string getColor();
+        public string getMatherial();
+    }
+
+     struct ProductsProp : IProducrProperty
+    {
+        Products product;
+        string colour;
+        string matherial;
+
+        public string getColor()
+        { 
+            return $"product {product} have {colour}";
+        }
+
+        public string getMatherial()
+        {
+            return $"product {product} made from {matherial}";
         }
     }
 }
